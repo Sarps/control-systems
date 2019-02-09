@@ -1,0 +1,277 @@
+{
+	"camera": {
+		"metadata": {
+			"version": 4.5,
+			"type": "Object",
+			"generator": "Object3D.toJSON"
+		},
+		"object": {
+			"uuid": "A549F7D1-6358-4C38-B48F-C75054685EF6",
+			"type": "PerspectiveCamera",
+			"name": "Camera",
+			"matrix": [-0.309424,0,-0.950924,0,-0.401415,0.906535,0.130618,0,0.862046,0.422132,-0.280503,0,32.831265,16.077003,-10.683052,1],
+			"fov": 50,
+			"zoom": 1,
+			"near": 0.1,
+			"far": 100000,
+			"focus": 10,
+			"aspect": 1.797274,
+			"filmGauge": 35,
+			"filmOffset": 0
+		}
+	},
+	"scene": {
+		"metadata": {
+			"version": 4.5,
+			"type": "Object",
+			"generator": "Object3D.toJSON"
+		},
+		"geometries": [
+			{
+				"uuid": "4628F4A7-D572-45C2-9A67-807D71FF19EC",
+				"type": "BoxGeometry",
+				"width": 2,
+				"height": 2,
+				"depth": 10,
+				"widthSegments": 1,
+				"heightSegments": 1,
+				"depthSegments": 1
+			},
+			{
+				"uuid": "D9FE15A7-9689-447E-BF9A-3B9279440615",
+				"type": "SphereBufferGeometry",
+				"radius": 0.4,
+				"widthSegments": 32,
+				"heightSegments": 16,
+				"phiStart": 0,
+				"phiLength": 6.283185,
+				"thetaStart": 0,
+				"thetaLength": 3.141593
+			},
+			{
+				"uuid": "4D79D1D9-737B-4DF0-BD16-7D54CC34E421",
+				"type": "BoxBufferGeometry",
+				"width": 1,
+				"height": 1,
+				"depth": 1,
+				"widthSegments": 0,
+				"heightSegments": 0,
+				"depthSegments": 0
+			},
+			{
+				"uuid": "5591E8F2-79FF-4FF2-9FB7-8FD212FDCC47",
+				"type": "SphereBufferGeometry",
+				"radius": 1,
+				"widthSegments": 32,
+				"heightSegments": 16,
+				"phiStart": 0,
+				"phiLength": 6.283185,
+				"thetaStart": 0,
+				"thetaLength": 3.141593
+			},
+			{
+				"uuid": "42D99DEF-3B1F-4EC3-B0A0-C4EDD5B0EDDF",
+				"type": "CylinderBufferGeometry",
+				"radiusTop": 0.5,
+				"radiusBottom": 1,
+				"height": 5,
+				"radialSegments": 32,
+				"heightSegments": 1,
+				"openEnded": false
+			},
+			{
+				"uuid": "7056A979-535A-4FB8-8B84-18A42E0EDA73",
+				"type": "PlaneBufferGeometry",
+				"width": 60,
+				"height": 5,
+				"widthSegments": 0,
+				"heightSegments": 0
+			}],
+		"materials": [
+			{
+				"uuid": "FBDBE66D-B613-4741-802D-5AE1DE07DE46",
+				"type": "MeshPhongMaterial",
+				"color": 2752767,
+				"emissive": 0,
+				"specular": 1118481,
+				"shininess": 30,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "A6610817-2B9C-4B8B-A41D-1ED08F2D7EC2",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "467A2C85-DA08-4937-B749-B36535B75BE4",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "4B7859AE-ADDA-4C21-9DE0-A9C5FB2D203E",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "B9E0C589-40E4-42EF-9AF0-293A28437783",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "B8DA9E8D-D865-4BDC-9C9F-6F0A8E7270C1",
+				"type": "MeshNormalMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			}],
+		"object": {
+			"uuid": "BD04FDE5-6706-4CC5-9BB3-FF291E2CAAEC",
+			"type": "Scene",
+			"name": "Scene",
+			"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+			"children": [
+				{
+					"uuid": "F1DD46A7-6584-4A37-BC76-852C3911077E",
+					"type": "Mesh",
+					"name": "Pad 2",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,26.357823,0,0,1],
+					"geometry": "4628F4A7-D572-45C2-9A67-807D71FF19EC",
+					"material": "FBDBE66D-B613-4741-802D-5AE1DE07DE46"
+				},
+				{
+					"uuid": "C62AAE9F-9E51-46A5-BD2B-71BA804FC0B3",
+					"type": "DirectionalLight",
+					"name": "DirectionalLight 3",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,10,20,15,1],
+					"color": 16777215,
+					"intensity": 1,
+					"shadow": {
+						"camera": {
+							"uuid": "8A21723A-EA71-430B-B1FC-29D023764CA1",
+							"type": "OrthographicCamera",
+							"zoom": 1,
+							"left": -5,
+							"right": 5,
+							"top": 5,
+							"bottom": -5,
+							"near": 0.5,
+							"far": 500
+						}
+					}
+				},
+				{
+					"uuid": "962FD299-55AA-4E9C-BCF5-85EDC22DB444",
+					"type": "Group",
+					"name": "Ball",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-25,6,0,1],
+					"children": [
+						{
+							"uuid": "632C46AF-19E2-4373-981B-D6FB16160D22",
+							"type": "Mesh",
+							"name": "Sphere 7",
+							"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+							"geometry": "D9FE15A7-9689-447E-BF9A-3B9279440615",
+							"material": "A6610817-2B9C-4B8B-A41D-1ED08F2D7EC2"
+						}]
+				},
+				{
+					"uuid": "C84616F6-0722-4076-B2DD-AEF7E07C5A17",
+					"type": "Group",
+					"name": "Catcher",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,12,0.5,0,1],
+					"children": [
+						{
+							"uuid": "100F71F6-40F0-4612-8615-2CD65074016F",
+							"type": "Mesh",
+							"name": "Box 6",
+							"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+							"geometry": "4D79D1D9-737B-4DF0-BD16-7D54CC34E421",
+							"material": "467A2C85-DA08-4937-B749-B36535B75BE4"
+						}]
+				},
+				{
+					"uuid": "0804ABD6-FBD8-45EF-9188-5794AA68D098",
+					"type": "Group",
+					"name": "Cannon",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-25,0,0,1],
+					"children": [
+						{
+							"uuid": "5D3A785E-124F-45E0-B164-9AF2E8BFD57B",
+							"type": "Mesh",
+							"name": "Sphere 4",
+							"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1],
+							"geometry": "5591E8F2-79FF-4FF2-9FB7-8FD212FDCC47",
+							"material": "4B7859AE-ADDA-4C21-9DE0-A9C5FB2D203E"
+						},
+						{
+							"uuid": "CF2C7F3E-83AB-4F39-B173-5C3FCC0120EB",
+							"type": "Mesh",
+							"name": "Cylinder 3",
+							"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,3.5,0,1],
+							"geometry": "42D99DEF-3B1F-4EC3-B0A0-C4EDD5B0EDDF",
+							"material": "B9E0C589-40E4-42EF-9AF0-293A28437783"
+						}]
+				},
+				{
+					"uuid": "E880EF95-F5A8-4527-B8C7-2A12A3D00CCC",
+					"type": "Mesh",
+					"name": "Ground",
+					"matrix": [1,0,0,0,0,0,-1,0,0,1,0,0,0,0,0,1],
+					"geometry": "7056A979-535A-4FB8-8B84-18A42E0EDA73",
+					"material": "B8DA9E8D-D865-4BDC-9C9F-6F0A8E7270C1"
+				}],
+			"background": 11184810
+		}
+	},
+	"scripts": {
+		"BD04FDE5-6706-4CC5-9BB3-FF291E2CAAEC": [
+			{
+				"name": "Game logic",
+				"source": "\nvar ball = this.getObjectByName('Ball');\n\nvar position = ball.position;\n\nvar velocity = new THREE.Vector3();\n\nvar catcher = this.getObjectByName('Catcher');\nvar cannon = this.getObjectByName('Cannon');\n\nvar raycaster = new THREE.Raycaster();\nvar objects = [catcher];\n\nvar t = 0, hmax = 10, d = Math.random()*15+30, tof = 500;\n\nvar socket = io();\n\nsocket.on('proximity change', function (distance) {\n\tif(50 < distance) distance = 50;\n\tcatcher.position.x = distance;\n});\n\n/*function mousemove( event ) {\n\tcatcher.position.x = ( event.clientX / player.width ) * 30 - 15;\n}*/\n\nfunction projectile() {\n\tt+=1;\n\tposition.y = hmax * Math.sin(t*Math.PI/tof);\n\tposition.x = d * (t/tof) + cannon.position.x;\n}\n\n\n\nfunction update( event ) {\n\t\n\tprojectile();\n\t\n\tif ( position.y > 0.1 ) return;\n\t\n\tif ( Math.abs(position.y - catcher.position.y) < 1 && \n\t\tMath.abs(position.x - catcher.position.x) < 1  ) {\n\t\talert('GOTCHA');\n\t\tplayer.stop();\n\t\tsocket.off('proximity change');\n\t}\n\t\n\tif(position.x > 0 && position.y < 0){\n\t\talert('Oops!!! BUSTED');\n\t\tplayer.stop();\n\t}\n\n}"
+			}]
+	}
+}

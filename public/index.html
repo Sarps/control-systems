@@ -1,0 +1,248 @@
+<html>
+
+<head>
+    <title>Mechatronics Access Control Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href='css/fonts.css' rel="stylesheet">
+    <link href="css/vuetify.min.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+    <script src="js/vuetify.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/morris.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <style>
+        html {
+            overflow: hidden;
+        }
+        *:not(.material-icons) {
+            font-family: Quicksand !important;
+        }
+		body {
+			color: #fff;
+			font-family: Monospace;
+			font-size: 13px;
+			text-align: center;
+			background-color: #fff;
+			margin: 0px;
+			overflow: hidden;
+		}
+
+		#info {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			padding: 5px;
+		}
+
+		a {
+			color: #bbb;
+		}
+
+		.ac {
+			/* prevent dat-gui from being selected */
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+            z-index: 10000 !important;
+		}
+
+		.no-pointer-events {
+			pointer-events: none;
+		}
+
+		.control-disabled {
+			color: #888;
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app primary>
+            <v-navigation-drawer app v-model="drawer">
+                <v-card>
+                    <v-card-media src="images/render-small.jpg" height="200">
+                        <v-container fill-height fluid pa-2>
+                            <v-layout fill-height>
+                                <v-flex xs12 align-end flexbox></v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-card-media>
+                    <v-card-actions>
+                        <span class="subheading black--text">Dr Eunice Akyereko</span>
+                        <v-spacer></v-spacer>
+                        <v-btn icon>
+                            <v-icon color="red darken-2">menu</v-icon>
+                        </v-btn>
+                        <v-btn icon>
+                            <v-icon>bookmark</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+                <v-list>
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-icon>home</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-title>Home</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-group open>
+                        <v-list-tile slot="activator">
+                            <v-list-tile-action>
+                                <v-icon>verified_user</v-icon>
+                            </v-list-tile-action>
+                            <v-list-tile-title>Group Members</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Oppong-Sarpong Emmanuel</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Aggrey Kingsley Nana Nsarko</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Boakye Frederick Kwadwo</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Addo Maclean Nathaniel</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Bempong Asamoah Silas </v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Eyiah Felix</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>Edward Morgan </v-list-tile-title>
+                        </v-list-tile>
+                    </v-list-group>
+                </v-list>
+            </v-navigation-drawer>
+            <v-toolbar app color="red darken-2">
+                <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+                <v-toolbar-title>Access Control Project</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn color="error" @click="swiped">Swipe <v-icon>card</v-icon></v-btn>
+			<v-btn color="error" icon @click="close"><v-icon>hommie</v-icon></v-btn>
+            </v-toolbar>
+            <v-content>
+                <v-container fluid>
+                    <v-layout row>
+                        <v-flex xs12 md7 sm12 v-show="$vuetify.breakpoint.mdAndUp">
+                            <div id="models" style="height: 100%; width: 100%;"></div>
+                        </v-flex>
+                        <v-flex xs12 sm12 md5>
+                            <v-layout row>
+                                <v-card>
+                                    <v-container fluid grid-list-lg>
+                                        <v-layout row wrap>
+                                            <v-flex xs12 sm6 md12>
+                                                <v-card color="white darken-2" class="white--text">
+                                                    <v-layout>
+                                                        <v-flex xs12>
+                                                            <div id="chart" style="height: 250px;"></div>
+                                                        </v-flex>
+                                                    </v-layout>
+                                                    <v-divider light></v-divider>
+                                                    <v-card-actions class="pa-3 black--text">
+                                                        Ultrasound Sensor
+                                                        <v-spacer></v-spacer>
+                                                        <v-btn-toggle v-model="proximity">
+                                                            <v-btn flat @click="listenProximity">
+                                                                <v-icon>settings_remote</v-icon>
+                                                            </v-btn>
+                                                            <v-btn flat @click="stopProximity">
+                                                                <v-icon color="red darken-2">stop</v-icon>
+                                                            </v-btn>
+                                                            </v-btn>
+                                                        </v-btn-toggle>
+                                                    </v-card-actions>
+                                                </v-card>
+                                            </v-flex>
+
+                                            <v-flex xs12 sm6 md12>
+                                                <v-card color="red darken-2" class="white--text">
+                                                    <v-layout row>
+                                                        <v-flex xs7>
+                                                            <v-card-title primary-title>
+                                                                <div>
+                                                                    <div class="headline">Servo Motor</div>
+                                                                    <div>Rotation</div>
+                                                                    <div>270 &deg;</div>
+                                                                </div>
+                                                            </v-card-title>
+                                                        </v-flex>
+                                                        <v-flex xs5>
+                                                            <v-progress-circular :rotate="360" :size="100" :width="15"
+                                                                :value="75" color="white">270</v-progress-circular>
+                                                        </v-flex>
+                                                    </v-layout>
+                                                    <v-divider light></v-divider>
+                                                    <v-card-actions class="pa-3">
+                                                        Controls the Gate
+                                                        <v-spacer></v-spacer>
+                                                        <v-btn-toggle v-model="motor">
+                                                            <v-btn flat @click="spinServo">
+                                                                <v-icon color="red darken-1">360</v-icon>
+                                                            </v-btn>
+                                                            <v-btn flat @click="sweepServo">
+                                                                <v-icon>sync</v-icon>
+                                                            </v-btn>
+                                                            <v-btn flat @click="stopServo">
+                                                                <v-icon color="red darken-2">stop</v-icon>
+                                                            </v-btn>
+                                                            </v-btn>
+                                                            <v-btn color="red" dark @click="spin_dialog = true">
+                                                                Spin
+                                                            </v-btn>
+                                                    </v-card-actions>
+                                                </v-card>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card>
+                            </v-layout>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-content>
+            <v-footer fixed app>
+                <div class="subheading"> --- Copyright &copy; 2018, built by applied mechanics 2018 - automatic control
+                    class</div>
+            </v-footer>
+        </v-app>
+        <v-dialog v-model="spin_dialog" max-width="290">
+            <v-card>
+                <v-card-title class="headline">Spin The Motor To</v-card-title>
+                <v-card-text>
+                    <v-text-field label="Angle in Degrees(&deg;)" v-model="spinTo" type="number" min="0" max="360"
+                        color="red darken-2"></v-text-field>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="red darken-1" flat="flat" @click="spin_dialog = false">
+                        Cancel
+                    </v-btn>
+                    <v-btn color="red darken-1" flat="flat" @click="moveServo">
+                        Start
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+    </div>
+
+    <script src="/bower_components/threejs/build/three.js"></script>
+
+    <script src="/js/libs/stats.min.js"></script>
+    <script src="/js/libs/OrbitControls.js"></script>
+    <script src="/js/libs/dat.gui.min.js"></script>
+
+    <script src="poster.js"></script>
+
+</body>
+
+</html>
